@@ -94,13 +94,13 @@ void Switcher::matchSessionComplete() {
 // Called in the secondary thread
 void Switcher::match(Plasma::RunnerContext &context) {
     const QString term = context.query();
-    if (!context.isValid() || !term.startsWith(i18nc("Note this is a KRunner keyword", "."), Qt::CaseInsensitive)) return;
+    // if (!context.isValid() || !term.startsWith(i18nc("Note this is a KRunner keyword", "."), Qt::CaseInsensitive)) return;
 
     QList<Plasma::QueryMatch> matches;
 
     // keyword match: when term starts with "window" we list all windows
     // the list can be restricted to windows matching a given name, class, role or desktop
-    const QString windowName = term.mid(1, term.size());
+    const QString windowName = term.mid(0, term.size());
 
     QHashIterator<WId, KWindowInfo> it(m_windows);
     while (it.hasNext()) {
