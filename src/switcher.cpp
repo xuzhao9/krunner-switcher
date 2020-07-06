@@ -133,7 +133,7 @@ void Switcher::run(const Plasma::RunnerContext &context, const Plasma::QueryMatc
     }
 
     WId w(match.data().toString().toULong());
-    int ms = 80;
+    int ms = 200;
     struct timespec ts = {ms / 1000, (ms % 1000) * 1000 * 1000};
     nanosleep(&ts, NULL);
     KWindowSystem::forceActiveWindow(w);
